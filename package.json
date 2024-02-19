@@ -4,11 +4,13 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "reinst": "rm -rf node_modules/ package-lock.json && npm i"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.10",
     "@mui/material": "^5.15.10",
     "next": "latest",
     "react": "^18.2.0",
