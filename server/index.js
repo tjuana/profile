@@ -9,8 +9,8 @@ const navigationRouter = require('./routes/navigation.js');
 const app = express();
 
 // Connect to MongoDB using Mongoose
-const mongoDBURI = 'mongodb+srv://boo:foo@profile.ed8hfat.mongodb.net/?retryWrites=true&w=majority';
-mongoose.connect(mongoDBURI);
+require('dotenv').config();
+mongoose.connect(process.env.MONGODB_URI);
 
 const db = mongoose.connection;
 
