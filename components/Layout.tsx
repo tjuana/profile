@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
-import AppBarButton from "./appBar";
+import AppBarButton from "./header/appBar";
 
 type Props = {
   children?: ReactNode;
@@ -16,9 +16,7 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="author" content="web development, portfolio, React, Next.js, TypeScript, Node.js, MongoDB, Material-UI" />
     </Head>
-    <header>
       <AppBarButton />
-    </header>
     {children}
     <footer>
       <hr />

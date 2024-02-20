@@ -11,6 +11,7 @@ import NextLink from "next/link";
 import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import AdbIcon from '@mui/icons-material/Adb';
+import Image from 'next/image';
 
 const pages = ['Products', 'Pricing', 'Blog'];
       {/* <nav>
@@ -18,7 +19,7 @@ const pages = ['Products', 'Pricing', 'Blog'];
         <Link href="/users">Users List</Link> |{" "}
         <a href="/api/users">Users API</a>
       </nav> */}
-const AppBarButton = () => {
+const HeaderMenu = () => {
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
 
 	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -30,8 +31,6 @@ const AppBarButton = () => {
 	};
 
 	return (
-	<Box sx={{ flexGrow: 1 }}>
-	  <AppBar position="static" color="info">
 		<Toolbar>
 			<IconButton
 				size="large"
@@ -41,7 +40,8 @@ const AppBarButton = () => {
 				sx={{ mr: 2 }}
 				onClick={handleOpenNavMenu}
 			>
-				<MenuIcon />
+				{/* <MenuIcon /> */}
+				<Image src="/icon_vlad.png" alt="My Icon" width={33} height={33} />
 			</IconButton>
 			<Box sx={{ flexGrow: 0 }}>
 			<Menu
@@ -66,11 +66,10 @@ const AppBarButton = () => {
 				</MenuItem>
 				))}
 			</Menu>
+
 			</Box>
 		</Toolbar>
-	  </AppBar>
-	</Box>
 	)
 }
 
-export default AppBarButton;
+export default HeaderMenu;
