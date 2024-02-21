@@ -1,11 +1,10 @@
-// Import required modules
 const express = require('express');
 const mongoose = require('mongoose');
+const exphbs = require('express-handlebars');
 const userRouter = require('./routes/user.js');
 const pageRouter = require('./routes/page.js');
 const navigationRouter = require('./routes/navigation.js');
 
-// Create Express application
 const app = express();
 
 // Connect to MongoDB using Mongoose
@@ -19,12 +18,21 @@ db.once('open', () => {
   console.log('Successfully connected to MongoDB!');
 });
 
+// Use Handlebars as the view engine
+app.engine('hbs', exphbs.engine({ extname: '.hbs' }));
+app.set('view engine', 'hbs');
+app.set('views', __dirname + '/views');
+
 // Use routes for users and pages
 app.use('/users', userRouter);
 app.use('/api/pages', pageRouter);
 app.use('/api/navigation', navigationRouter);
 
-// Set the port for the Express app to listen on
+// Define a route to render the Handlebars template
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
 const port = 4242;
 
 app.listen(port, () => {
