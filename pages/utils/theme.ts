@@ -1,6 +1,7 @@
 import { createTheme, Theme } from '@mui/material/styles';
 
 const theme: Theme = createTheme({
+  // add only secondary ???
   // Palette settings for color scheme
   palette: {
     primary: {

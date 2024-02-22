@@ -31,4 +31,4 @@ const LayoutWithTheme: React.FC<LayoutWithThemeProps> = (props) => (
   <MyApp Component={Layout} pageProps={props} />
 );
 
-export default Layout;
+export default LayoutWithTheme;
