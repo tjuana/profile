@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
-import MyApp from "../_app/app";
-import api from "../utils/axios";
+import MyApp from "./_app/app";
+import { getStaticPropsRequest } from "./utils/getStaticProps";
 
 const IndexPage = ({ data }) => (
   <Layout title="Home | Next.js + TypeScript Example">
@@ -26,27 +26,11 @@ const HomeWithTheme = (props) => (
 )
 
 export async function getStaticProps() {
-  try {
-    // Make a GET request to the '/example' endpoint (replace with your actual endpoint)
-    const result = await api.get('/users');
-    console.log('API data:', result);
-    // Pass the data to the component props
-    return {
-      props: {
-        data: result,
-      },
-    };
-  } catch (error) {
-    // Handle errors
-    console.error('API Error:', error);
-
-    // Pass an empty data prop in case of an error
-    return {
-      props: {
-        data: null,
-      },
-    };
-  }
+  // Pass the URL and custom error text to the utility function
+  return getStaticPropsRequest(
+    '/users',
+    'Failed to fetch user data'
+  );
 }
 
 export default HomeWithTheme;
