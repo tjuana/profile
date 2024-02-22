@@ -1,9 +1,11 @@
+// pages/index.tsx
 import Link from "next/link";
 import Layout from "../components/Layout";
-import MyApp from "./_app/app";
+import App from "./_app/app";
 import { getStaticPropsRequest } from "./utils/getStaticProps";
+import type { IndexPageProps, ApiData, HomeWithThemeProps } from "./types/types";
 
-const IndexPage = ({ data }) => (
+const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
   <Layout title="Home | Next.js + TypeScript Example">
     <h1>Hello Next.js 👋</h1>
     {data ? (
@@ -21,9 +23,9 @@ const IndexPage = ({ data }) => (
   </Layout>
 );
 
-const HomeWithTheme = (props) => (
-  <MyApp Component={IndexPage} pageProps={props} />
-)
+const HomeWithTheme: React.FC<HomeWithThemeProps> = (props) => (
+  <App Component={IndexPage} pageProps={props} />
+);
 
 export async function getStaticProps() {
   // Pass the URL and custom error text to the utility function
