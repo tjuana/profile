@@ -1,16 +1,6 @@
 import React, { ReactNode } from "react";
 import { AppBar, Avatar, Tooltip } from '@mui/material';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import IconButton from '@mui/material/IconButton';
-import MenuItem from '@mui/material/MenuItem';
-import NextLink from "next/link";
-import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
-import AdbIcon from '@mui/icons-material/Adb';
 import HeaderMenu from "./menu";
 
 const pages = ['Products', 'Pricing', 'Blog'];
@@ -31,13 +21,11 @@ const AppBarButton = () => {
 	};
 
 	return (
-	<header>
-		<Box sx={{ flexGrow: 1 }}>
+	<Box sx={{ flexGrow: 1 }}>
 		<AppBar position="static" color="info">
 			<HeaderMenu />
 		</AppBar>
-		</Box>
-	</header>
+	</Box>
 	)
 }
 

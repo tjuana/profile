@@ -1,7 +1,5 @@
-// pages/index.tsx
 import Link from "next/link";
 import Layout from "../components/Layout";
-import App from "./_app/app";
 import { getStaticPropsRequest } from "./utils/getStaticProps";
 import type { IndexPageProps, ApiData, HomeWithThemeProps } from "./types/types";
 
@@ -23,10 +21,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
   </Layout>
 );
 
-const HomeWithTheme: React.FC<HomeWithThemeProps> = (props) => (
-  <App Component={IndexPage} pageProps={props} />
-);
-
 export async function getStaticProps() {
   // Pass the URL and custom error text to the utility function
   return getStaticPropsRequest(
@@ -35,4 +29,4 @@ export async function getStaticProps() {
   );
 }
 
-export default HomeWithTheme;
+export default IndexPage;

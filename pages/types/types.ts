@@ -2,7 +2,7 @@ export interface IndexPageProps {
 	data: Record<string, unknown> | null;
 }
 
-export interface HomeWithThemeProps {
+export interface LayoutWithThemeProps {
 	// You can add any additional props if needed
 }
 

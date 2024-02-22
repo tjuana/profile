@@ -1,6 +1,8 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
 import AppBarButton from "./header/appBar";
+import MyApp from "../pages/_app/app";
+import { LayoutWithThemeProps } from "../pages/types/types";
 
 type Props = {
   children?: ReactNode;
@@ -16,13 +18,17 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       <meta name="author" content="web development, portfolio, React, Next.js, TypeScript, Node.js, MongoDB, Material-UI" />
     </Head>
-      <AppBarButton />
+    <AppBarButton />
     {children}
     <footer>
       <hr />
       <span>I'm here to stay (Footer)</span>
     </footer>
   </div>
+);
+
+const LayoutWithTheme: React.FC<LayoutWithThemeProps> = (props) => (
+  <MyApp Component={Layout} pageProps={props} />
 );
 
 export default Layout;
