@@ -3,6 +3,8 @@ export interface IndexPageProps {
 }
 
 export interface LayoutWithThemeProps {
+	children?: React.ReactNode;
+	title?: string;
 	// You can add any additional props if needed
 }
 

@@ -27,8 +27,8 @@ const Layout = ({ children, title = "This is the default title" }: Props) => (
   </div>
 );
 
-const LayoutWithTheme: React.FC<LayoutWithThemeProps> = (props) => (
-  <MyApp Component={Layout} pageProps={props} />
+const LayoutWithTheme: React.FC<LayoutWithThemeProps> = ({ title, ...props }) => (
+  <MyApp Component={Layout} pageProps={{ ...props, title }} />
 );
 
 export default LayoutWithTheme;

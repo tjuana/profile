@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { AppBar, Avatar, Tooltip } from '@mui/material';
+import { AppBar, Avatar, Tooltip, keyframes } from '@mui/material';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -12,6 +12,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import AdbIcon from '@mui/icons-material/Adb';
 import Image from 'next/image';
+
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
 
 const pages = ['Products', 'Pricing', 'Blog'];
       {/* <nav>
@@ -37,11 +49,14 @@ const HeaderMenu = () => {
 				edge="start"
 				color="inherit"
 				aria-label="menu"
-				sx={{ mr: 2 }}
+				sx={{
+					animation: `${pulse} 1s infinite`,
+				  }}
+				// style={{ transform: anchorElNav ? 'rotate(180deg)' : 'rotate(0)' }}
 				onClick={handleOpenNavMenu}
 			>
-				{/* <MenuIcon /> */}
-				<Image src="/icon_vlad.png" alt="My Icon" width={33} height={33} />
+				<MenuIcon />
+				{/* <Image src="/icon_vlad.png" alt="My Icon" width={33} height={33} /> */}
 			</IconButton>
 			<Box sx={{ flexGrow: 0 }}>
 			<Menu
@@ -49,21 +64,21 @@ const HeaderMenu = () => {
 				id="menu-appbar"
 				anchorEl={anchorElNav}
 				anchorOrigin={{
-				vertical: 'top',
-				horizontal: 'right',
+					vertical: 'top',
+					horizontal: 'right',
 				}}
 				keepMounted
 				transformOrigin={{
-				vertical: 'top',
-				horizontal: 'right',
+					vertical: 'top',
+					horizontal: 'right',
 				}}
 				open={Boolean(anchorElNav)}
 				onClose={handleCloseNavMenu}
 			>
 				{pages.map((page) => (
-				<MenuItem key={page} onClick={handleCloseNavMenu}>
-					<Typography textAlign="center">{page}</Typography>
-				</MenuItem>
+					<MenuItem key={page} onClick={handleCloseNavMenu}>
+						<Typography textAlign="center">{page}</Typography>
+					</MenuItem>
 				))}
 			</Menu>
 

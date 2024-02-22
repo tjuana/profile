@@ -1,29 +1,34 @@
-import React, { ReactNode } from "react";
-import { AppBar, Avatar, Tooltip } from '@mui/material';
-import Box from '@mui/material/Box';
-import HeaderMenu from "./menu";
+import React from 'react';
+import { AppBar, Toolbar, Typography, Button, IconButton, Box } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CodeIcon from '@mui/icons-material/Code';
+import WebIcon from '@mui/icons-material/Web';
+import LanguageIcon from '@mui/icons-material/Language';
+import HeaderMenu from './menu';
 
-const pages = ['Products', 'Pricing', 'Blog'];
-      {/* <nav>
-        <Link href="/">Home</Link> | <Link href="/about">About</Link> |{" "}
-        <Link href="/users">Users List</Link> |{" "}
-        <a href="/api/users">Users API</a>
-      </nav> */}
 const AppBarButton = () => {
-	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-
-	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-		setAnchorElNav(event.currentTarget);
-	};
-
-	const handleCloseNavMenu = () => {
-		setAnchorElNav(null);
-	};
 
 	return (
 	<Box sx={{ flexGrow: 1 }}>
-		<AppBar position="static" color="info">
-			<HeaderMenu />
+		<AppBar position="static">
+			<Toolbar>
+				{/* Логотип или иконка */}
+				<CodeIcon sx={{ mr: 2 }} />
+
+				{/* Название сайта */}
+				<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+				Ваше Имя
+				</Typography>
+
+				{/* Навыки и ссылки */}
+				<Button color="inherit" startIcon={<WebIcon />}>
+				Frontend
+				</Button>
+				<Button color="inherit" startIcon={<LanguageIcon />}>
+				React
+				</Button>
+				<HeaderMenu />
+			</Toolbar>
 		</AppBar>
 	</Box>
 	)

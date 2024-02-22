@@ -16,7 +16,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
       <p>Loading...</p>
     )}
     <p>
-      <p className="space-text">This is a space-themed paragraph.</p>
       <Link href="/about">About</Link>
     </p>
   </Layout>
