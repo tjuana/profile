@@ -1,0 +1,5 @@
+@font-face {
+	font-family: 'SpaceFont';
+	src: url('/fonts/space-font.woff') format('woff');
+	/* Add more font formats if necessary (e.g., woff2, ttf) */
+}

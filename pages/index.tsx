@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
 import { getStaticPropsRequest } from "./utils/getStaticProps";
-import type { IndexPageProps, ApiData, HomeWithThemeProps } from "./types/types";
+import type { IndexPageProps } from "./types/types";
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
   <Layout title="Home | Next.js + TypeScript Example">
@@ -16,6 +16,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
       <p>Loading...</p>
     )}
     <p>
+      <p className="space-text">This is a space-themed paragraph.</p>
       <Link href="/about">About</Link>
     </p>
   </Layout>
