@@ -1,8 +1,8 @@
 import { useEffect, FC } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import theme from '../utils/theme';
-import { MyAppProps } from '../types/types';
+import theme from '../../utils/theme';
+import { MyAppProps } from '../../types/types';
 import '../styles/globals.css';
 
 const MyApp: FC<MyAppProps> = ({ Component, pageProps }) => {

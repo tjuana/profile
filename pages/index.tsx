@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Layout from "../components/Layout";
-import { getStaticPropsRequest } from "./utils/getStaticProps";
-import type { IndexPageProps } from "./types/types";
+import type { IndexPageProps } from "../types/types";
+import api from "../utils/axios";
 
 const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
   <Layout title="Home | Next.js + TypeScript Example">
@@ -22,11 +22,27 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
 );
 
 export async function getStaticProps() {
-  // Pass the URL and custom error text to the utility function
-  return getStaticPropsRequest(
-    '/users',
-    'Failed to fetch user data'
-  );
+    try {
+      // Make a GET request to the specified apiUrl
+      const result = await api.get('/users');
+      // Pass the data to the component props
+      return {
+        props: {
+          data: result,
+        },
+      };
+    } catch (error) {
+      // Handle errors
+      console.error('Failed to fetch user data' || 'API Error:', error);
+  
+      // Pass an empty data prop and custom error text in case of an error
+      return {
+        props: {
+          data: null,
+          errorText: 'Failed to fetch user data' || "Failed to fetch data",
+        },
+      };
+  };
 }
 
 export default IndexPage;

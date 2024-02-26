@@ -5,11 +5,13 @@ import CodeIcon from '@mui/icons-material/Code';
 import WebIcon from '@mui/icons-material/Web';
 import LanguageIcon from '@mui/icons-material/Language';
 import HeaderMenu from './menu';
+import BackgroundImage from '../backgroundImage';
 
 const AppBarButton = () => {
 
 	return (
 	<Box sx={{ flexGrow: 1 }}>
+		<BackgroundImage />
 		<AppBar position="static">
 			<Toolbar>
 				{/* Логотип или иконка */}

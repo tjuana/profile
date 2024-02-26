@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 import Head from "next/head";
 import AppBarButton from "./header/appBar";
 import MyApp from "../pages/_app/app";
-import { LayoutWithThemeProps } from "../pages/types/types";
+import { LayoutWithThemeProps } from "../types/types";
 
 type Props = {
   children?: ReactNode;
