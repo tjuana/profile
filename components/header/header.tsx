@@ -1,12 +1,12 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 import AddReactionIcon from '@mui/icons-material/AddReaction';
-import HeaderMenu from './menu';
-import BackgroundImage from '../backgroundImage';
-import NavigationButtons from './buttons';
+import HeaderMenu from './Menu';
+import BackgroundImage from '../BackgroundImage';
 import styles from './styles.module.css';
+import NavigationButtons from './buttons';
 
-const AppBarButton = ({ navigation }) => (
+const Header = ({ navigation }) => (
 	<Box sx={{ flexGrow: 1 }}>
 		<BackgroundImage />
 		<AppBar position="static" className={styles.appBar}>
@@ -29,4 +29,4 @@ const AppBarButton = ({ navigation }) => (
 	</Box>
 );
 
-export default AppBarButton;
+export default Header;
