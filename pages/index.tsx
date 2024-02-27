@@ -26,13 +26,11 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, navigation }) => (
 export const getStaticProps: GetStaticProps = async () => {
     try {
       // Make a GET request to the specified apiUrl
-      const result = await api.get('/users');
       const navigation = await api.get('/api/navigation');
       // const navigation = response.data;
       // Pass the data to the component props
       return {
         props: {
-          data: result,
           navigation
         },
       };

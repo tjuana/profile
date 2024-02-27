@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import AppBarButton from "./header/appBar";
+import AppBarButton from "./header/header";
 import MyApp from "../pages/_app/app";
 import { LayoutProps, LayoutWithThemeProps } from "../types/types";
 

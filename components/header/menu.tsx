@@ -7,27 +7,40 @@ import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useRouter } from 'next/router';
 
 const pulse = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
 `;
 
-const pages = ['Products', 'Pricing', 'Blog'];
-      {/* <nav>
-        <Link href="/">Home</Link> | <Link href="/about">About</Link> |{" "}
-        <Link href="/users">Users List</Link> |{" "}
-        <a href="/api/users">Users API</a>
-      </nav> */}
-const HeaderMenu = () => {
+interface Page {
+	title: string;
+	href: string;
+	_id: string;
+}
+
+interface HeaderMenuProps {
+	pages: Record<string, Page>;
+}
+
+const HeaderMenu: React.FC<HeaderMenuProps> = ({ pages }) => {
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+
+	const router = useRouter();
+	const handleClickNavMenu = ({ href }: { href: string }) => {
+		// Переход по ссылке
+		router.push(href);
+		// Закрытие меню или выполнение других действий при необходимости
+		setAnchorElNav(null);
+	};
 
 	const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
 		setAnchorElNav(event.currentTarget);
@@ -73,9 +86,9 @@ const HeaderMenu = () => {
 				open={Boolean(anchorElNav)}
 				onClose={handleCloseNavMenu}
 			>
-				{pages.map((page) => (
-					<MenuItem key={page} onClick={handleCloseNavMenu}>
-						<Typography textAlign="center">{page}</Typography>
+				{pages && Object.values(pages)?.map(({ title, href }: Page) => (
+					<MenuItem key={title} onClick={() => handleClickNavMenu({ href })}>
+						<Typography textAlign="center">{title}</Typography>
 					</MenuItem>
 				))}
 			</Menu>
