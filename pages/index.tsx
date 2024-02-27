@@ -3,10 +3,10 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import type { IndexPageProps } from "../types/types";
 import api from "../utils/axios";
-import { GetStaticProps } from "next";
+import { GetStaticProps } from "next/types";
 
-const IndexPage: React.FC<IndexPageProps> = ({ data, result }) => (
-  <Layout title="Home | Next.js + TypeScript Example" navigation={result}>
+const IndexPage: React.FC<IndexPageProps> = ({ data, navigation }) => (
+  <Layout title="Home | Next.js + TypeScript Example" navigation={navigation}>
     <h1>Hello Next.js 👋</h1>
     {data ? (
       <div>
@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
       return {
         props: {
           data: result,
-          result: navigation
+          navigation
         },
       };
     } catch (error) {
@@ -44,6 +44,7 @@ export const getStaticProps: GetStaticProps = async () => {
       return {
         props: {
           data: null,
+          navigation: null,
           errorText: 'Failed to fetch user data' || "Failed to fetch data",
         },
       };

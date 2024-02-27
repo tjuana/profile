@@ -49,14 +49,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // This function gets called at build time on server-side.
 // It won't be called on client-side, so you can even do
 // direct database queries.
-// export const getStaticProps: GetStaticProps = async ({ params }) => {
-//   try {
-//     const id = params?.id;
-//     const item = sampleUserData.find((data) => data.id === Number(id));
-//     // By returning { props: item }, the StaticPropsDetail component
-//     // will receive `item` as a prop at build time
-//     return { props: { item } };
-//   } catch (err) {
-//     return { props: { errors: err.message } };
-//   }
-// };
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  try {
+    const id = params?.id;
+    const item = sampleUserData.find((data) => data.id === Number(id));
+    // By returning { props: item }, the StaticPropsDetail component
+    // will receive `item` as a prop at build time
+    return { props: { item } };
+  } catch (err) {
+    return { props: { errors: err.message } };
+  }
+};
