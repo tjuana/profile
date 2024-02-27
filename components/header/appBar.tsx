@@ -1,15 +1,14 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
 import AddReactionIcon from '@mui/icons-material/AddReaction';
-import WebIcon from '@mui/icons-material/Web';
-import LanguageIcon from '@mui/icons-material/Language';
+import HomeIcon from '@mui/icons-material/Home';
+import WorkIcon from '@mui/icons-material/Work';
+import InfoIcon from '@mui/icons-material/Info';
 import HeaderMenu from './menu';
 import BackgroundImage from '../backgroundImage';
 import styles from './styles.module.css';
-import api from '../../utils/axios';
 
-const AppBarButton = () => {
-
+const AppBarButton = ({ navigation }) => {
 	return (
 	<Box sx={{ flexGrow: 1 }}>
 		<BackgroundImage />
@@ -20,45 +19,37 @@ const AppBarButton = () => {
 
 				{/* Название сайта */}
 				<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-				Ваше Имя
+				{/* https://www.youtube.com/watch?v=dQw4w9WgXcQ */}
+					Vladislav Rogoza
 				</Typography>
 
 				{/* Навыки и ссылки */}
-				<Button color="inherit" startIcon={<WebIcon />}>
-				Frontend
+				<Button
+					color="inherit"
+					startIcon={<HomeIcon />}
+					href={navigation?.['Home']?.href}
+					>
+					{navigation?.['Home']?.title || 'Home'}
 				</Button>
-				<Button color="inherit" startIcon={<LanguageIcon />}>
-				React
+				<Button
+					color="inherit"
+					startIcon={<InfoIcon />}
+					href={navigation?.['About']?.href}
+				>
+					{navigation?.['About']?.title || 'About'}
+				</Button>
+				<Button
+					color="inherit"
+					startIcon={<WorkIcon />}
+					href={navigation?.['Projects']?.href}
+				>
+					{navigation?.['Projects']?.title || 'Projects'}
 				</Button>
 				<HeaderMenu />
 			</Toolbar>
 		</AppBar>
 	</Box>
 	)
-}
-
-export async function getStaticProps() {
-    try {
-      // Make a GET request to the specified apiUrl
-      const result = await api.get('/api/navigation');
-      // Pass the data to the component props
-      return {
-        props: {
-          data: result,
-        },
-      };
-    } catch (error) {
-      // Handle errors
-      console.error('Failed to fetch navigation data' || 'API Error:', error);
-  
-      // Pass an empty data prop and custom error text in case of an error
-      return {
-        props: {
-          data: null,
-          errorText: 'Failed to fetch navigation data' || "Failed to fetch data",
-        },
-      };
-  }
 }
 
 export default AppBarButton;

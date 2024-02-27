@@ -3,9 +3,10 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import type { IndexPageProps } from "../types/types";
 import api from "../utils/axios";
+import { GetStaticProps } from "next";
 
-const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
-  <Layout title="Home | Next.js + TypeScript Example">
+const IndexPage: React.FC<IndexPageProps> = ({ data, result }) => (
+  <Layout title="Home | Next.js + TypeScript Example" navigation={result}>
     <h1>Hello Next.js 👋</h1>
     {data ? (
       <div>
@@ -22,14 +23,17 @@ const IndexPage: React.FC<IndexPageProps> = ({ data }) => (
   </Layout>
 );
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
     try {
       // Make a GET request to the specified apiUrl
       const result = await api.get('/users');
+      const navigation = await api.get('/api/navigation');
+      // const navigation = response.data;
       // Pass the data to the component props
       return {
         props: {
           data: result,
+          result: navigation
         },
       };
     } catch (error) {
