@@ -1,3 +1,4 @@
+import React from "react";
 import { GetStaticProps, GetStaticPaths } from "next";
 
 import { User } from "../../interfaces";
@@ -55,7 +56,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // By returning { props: item }, the StaticPropsDetail component
     // will receive `item` as a prop at build time
     return { props: { item } };
-  } catch (err: any) {
+  } catch (err) {
     return { props: { errors: err.message } };
   }
 };

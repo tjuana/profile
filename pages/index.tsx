@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import type { IndexPageProps } from "../types/types";
@@ -42,7 +43,7 @@ export async function getStaticProps() {
           errorText: 'Failed to fetch user data' || "Failed to fetch data",
         },
       };
-  };
+  }
 }
 
 export default IndexPage;

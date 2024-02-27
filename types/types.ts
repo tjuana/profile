@@ -15,9 +15,9 @@ export interface ApiData<T> {
 }
 
 export interface MyAppProps {
-	Component: React.ComponentType<any>;
+	Component: React.ComponentType;
 	pageProps: {
-		[key: string]: any;
+		title?: string;
 		children?: React.ReactNode;
 	};
 }
