@@ -8,7 +8,6 @@ import NavigationButtons from './buttons';
 import { Navigation } from '../../types';
 
 const Header = ({ navigation, linkedinUrl }: { navigation?: Navigation, linkedinUrl?: string }) => {
-	// TODO: add rout for link from mongo
 	const handleClick = () => {
 		window.open(linkedinUrl || 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
 	};
