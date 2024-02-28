@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
+import { HeaderMenuProps, NavigationItem } from "../../types";
 
 const pulse = keyframes`
 	0% {
@@ -20,16 +21,6 @@ const pulse = keyframes`
 		transform: scale(1);
 	}
 `;
-
-interface Page {
-	title: string;
-	href: string;
-	_id: string;
-}
-
-interface HeaderMenuProps {
-	pages: Record<string, Page>;
-}
 
 const HeaderMenu: React.FC<HeaderMenuProps> = ({ pages }) => {
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -86,8 +77,8 @@ const HeaderMenu: React.FC<HeaderMenuProps> = ({ pages }) => {
 				open={Boolean(anchorElNav)}
 				onClose={handleCloseNavMenu}
 			>
-				{pages && Object.values(pages)?.map(({ title, href }: Page) => (
-					<MenuItem key={title} onClick={() => handleClickNavMenu({ href })}>
+				{pages && Object.values(pages)?.map(({ key, title, href }: NavigationItem) => (
+					<MenuItem key={key} onClick={() => handleClickNavMenu({ href })}>
 						<Typography textAlign="center">{title}</Typography>
 					</MenuItem>
 				))}

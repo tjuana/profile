@@ -7,6 +7,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 const userRouter = require('./routes/user.js');
 const pageRouter = require('./routes/page.js');
 const navigationRouter = require('./routes/navigation.js');
+const externalLinksRouter = require('./routes/external-links.js');
 
 const app = express();
 // Serve static files
@@ -16,6 +17,7 @@ app.use(express.static('public'));
 app.use('/users', userRouter);
 app.use('/api/pages', pageRouter);
 app.use('/api/navigation', navigationRouter);
+app.use('/api/external-links', externalLinksRouter);
 
 // Set up a proxy for Next.js don't work
 app.use('/_next', createProxyMiddleware({ target: 'http://localhost:3000', changeOrigin: true }));
