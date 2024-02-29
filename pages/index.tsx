@@ -17,9 +17,6 @@ const IndexPage: React.FC<IndexPageProps> = ({ data, navigation, externalLinks }
     ) : (
       <p>Loading...</p>
     )}
-    <p>
-      <Link href="/about">About</Link>
-    </p>
   </Layout>
 );
 

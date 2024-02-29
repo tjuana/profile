@@ -3,31 +3,29 @@ import { AppBar, Toolbar, Typography, Box } from '@mui/material';
 import AddReactionIcon from '@mui/icons-material/AddReaction';
 import HeaderMenu from './Menu';
 import BackgroundImage from '../BackgroundImage';
-import styles from './styles.module.css';
 import NavigationButtons from './buttons';
 import { Navigation } from '../../types';
 
+import { BoxStyles, addReactionIconStyles, appBarStyles, siteNameStyles } from './styles';
+
 const Header = ({ navigation, linkedinUrl }: { navigation?: Navigation, linkedinUrl?: string }) => {
+	// TODO: add rout for link from mongo
 	const handleClick = () => {
 		window.open(linkedinUrl || 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
 	};
 
 	return(
-		<Box sx={{ flexGrow: 1 }}>
+		<Box sx={BoxStyles}>
 			<BackgroundImage />
-			<AppBar position="static" className={styles.appBar}>
+			<AppBar position="static" sx={appBarStyles}>
 				<Toolbar>
 				{/* Logo or icon */}
 				<AddReactionIcon
-					sx={{
-						mr: 2,
-						"&:hover": {
-							cursor: "pointer"
-						},}}
+					sx={addReactionIconStyles}
 					onClick={handleClick}
 				/>
 				{/* Site name as a clickable link */}
-				<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+				<Typography variant="h6" component="div" sx={siteNameStyles}>
 					Vladislav Rogoza
 				</Typography>
 

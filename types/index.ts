@@ -22,6 +22,8 @@ export interface HeaderMenuProps {
 export interface IndexPageProps {
 	data: Record<string, unknown> | null;
 	navigation: Navigation;
+	// FIXME: this
+	externalLinks: string[];
 }
 
 export interface LayoutWithThemeProps extends LayoutProps {
