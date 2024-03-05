@@ -22,7 +22,14 @@ const theme: Theme = createTheme({
     h1: {
       fontSize: '2rem',
       fontWeight: 'bold',
+      color: '#00FF7F'
       // Other h1 styles...
+    },
+    h6: {
+      color: '#00FF7F'
+    },
+    body1: {
+      color: '#00FF5F'
     },
     // Other typography settings...
   },

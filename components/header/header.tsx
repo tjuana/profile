@@ -25,6 +25,7 @@ const Header = ({ navigation, linkedinUrl }: { navigation?: Navigation, linkedin
 					onClick={handleClick}
 				/>
 				{/* Site name as a clickable link */}
+				{/* TODO: from mongodb */}
 				<Typography variant="h6" component="div" sx={siteNameStyles}>
 					Vladislav Rogoza
 				</Typography>
