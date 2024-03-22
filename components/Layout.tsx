@@ -13,20 +13,22 @@ const Layout = ({ children, navigation, linkedinUrl }: LayoutProps) => (
 	<div>
 		<MetaHead />
 		<Header navigation={navigation} linkedinUrl={linkedinUrl}/>
-		<Grid container>
-			{/* Левая часть сетки, занимает 3/4 экрана на больших экранах и всю ширину на маленьких */}
-			<Grid item xs={12} lg={9}>
-			{children}
+		<main>
+			<Grid container>
+				{/* Левая часть сетки, занимает 3/4 экрана на больших экранах и всю ширину на маленьких */}
+				<Grid item xs={12} lg={9}>
+				{children}
+				</Grid>
+				{/* Правая часть сетки, занимает 1/4 экрана на больших экранах */}
+				<Grid item xs={12} lg={3}>
+				<Box component="aside" sx={{ padding: 2 }}>
+					{/* Ваша контентная часть для aside */}
+					<h2>Правая часть экрана</h2>
+					<Typography variant="body1">{text}</Typography>
+				</Box>
+				</Grid>
 			</Grid>
-			{/* Правая часть сетки, занимает 1/4 экрана на больших экранах */}
-			<Grid item xs={12} lg={3}>
-			<Box component="aside" sx={{ padding: 2 }}>
-				{/* Ваша контентная часть для aside */}
-				<h2>Правая часть экрана</h2>
-				<Typography variant="body1">{text}</Typography>
-			</Box>
-			</Grid>
-		</Grid>
+		</main>
 		{/* TODO: Footer fix */}
 		{/* <Footer /> */}
 	</div>

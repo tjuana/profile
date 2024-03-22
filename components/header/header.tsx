@@ -15,29 +15,31 @@ const Header = ({ navigation, linkedinUrl }: { navigation?: Navigation, linkedin
 	};
 
 	return(
-		<Box sx={BoxStyles}>
-			<BackgroundImage />
-			<AppBar position="static" sx={appBarStyles}>
-				<Toolbar>
-				{/* Logo or icon */}
-				<AddReactionIcon
-					sx={addReactionIconStyles}
-					onClick={handleClick}
-				/>
-				{/* Site name as a clickable link */}
-				{/* TODO: from mongodb */}
-				<Typography variant="h6" component="div" sx={siteNameStyles}>
-					Vladislav Rogoza
-				</Typography>
+		<header>
+			<Box sx={BoxStyles}>
+				<BackgroundImage />
+				<AppBar position="static" sx={appBarStyles}>
+					<Toolbar>
+					{/* Logo or icon */}
+					<AddReactionIcon
+						sx={addReactionIconStyles}
+						onClick={handleClick}
+					/>
+					{/* Site name as a clickable link */}
+					{/* TODO: from mongodb */}
+					<Typography variant="h6" component="div" sx={siteNameStyles}>
+						Vladislav Rogoza
+					</Typography>
 
-				{/* Navigation buttons */}
-				<NavigationButtons navigation={navigation} />
+					{/* Navigation buttons */}
+					<NavigationButtons navigation={navigation} />
 
-				{/* Always display in mobile view */}
-				<HeaderMenu pages={navigation} />
-				</Toolbar>
-			</AppBar>
-		</Box>
+					{/* Always display in mobile view */}
+					<HeaderMenu pages={navigation} />
+					</Toolbar>
+				</AppBar>
+			</Box>
+		</header>
 	);
 };
 
